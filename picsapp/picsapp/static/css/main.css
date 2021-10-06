@@ -1,0 +1,19 @@
+body {
+    padding-top: 30px;
+}
+
+.card-img-top {
+    object-fit: cover;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.full-img {
+    max-width: 100%;
+}
+
+.col-md-4 {
+    display: inline-flex;
+}

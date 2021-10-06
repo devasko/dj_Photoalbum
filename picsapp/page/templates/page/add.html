@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <a class="btn btn-dark my-3" href="{% url 'gallery' %}">Назад</a>
+
+    <div class="row justify-content-center">
+        <h3 class="text-center">Загрузка изображения</h3>
+        <div class="col-md-4">
+            <div class="card p-3">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <select name="category" class="form-select" required>
+                            <option value="none">Выберите категорию...</option>
+                            {% for category in categories %}
+                                <option value="{{ category.id }}">{{ category }}</option>
+                            {% endfor %}
+                        </select>
+
+                        <div class="form-group my-3">
+                            <label>Создать категорию</label>
+                            <input type="text" name="category_new" placeholder="Введите название новой категории" class="form-control">
+
+                        </div>
+                    </div>
+
+                    <div class="input-group my-3">
+                        <textarea id="desc" name="description" class="form-control" aria-label="With textarea"
+                        placeholder="Введите описание изображения" required></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <input required type="file" name="image" class="form-control" id="fileinput"
+                               aria-label="Upload">
+                        <button class="btn btn-dark" type="submit">Загрузить
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
